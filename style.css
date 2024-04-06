@@ -1,0 +1,52 @@
+body{
+    margin: 0 0 55px 0;
+}
+*{
+    margin: auto;
+    padding: 0;
+    font-family: 'Lucida Sans Unicode';
+
+}
+header {
+    text-align: center;
+    background: white;
+    top: 0;
+    width: 30%;
+    max-height: 10%;
+}
+img {
+    max-width: 30%;
+    height: auto;
+    display: block;
+    position: fixed;
+}
+
+
+.nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 10px rgba(0, 0 ,0, 0.2);
+    background: #a4c2f4ff;
+    justify-content: space-between;
+    /*align-items: center;*/
+    overflow: hidden;
+    /*white-space: nowrap;*/
+    display: flex;
+    overflow-x: auto;
+    font-style: italic;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out;
+}
+
+.nav__link {
+
+    
+}
+.nav:hover { 
+    background-color: #9ca9f5;
+}
