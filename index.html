@@ -37,6 +37,22 @@
         </div>
         <button type = "continue">Continue</button>
     </form>
+
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('continue', (e) => {
+            e.preventDefault();
+            
+            let diets = {};
+            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                if(item.checked == true){
+                    diets.push(item.value);
+                }
+            })
+            console.log(diets);
+        })
+    </script>
+
     <nav class ="nav">
         <a href = "index.html">Spices</a>
         <a href = "ingpage.html">Ingr.</a>
