@@ -17,7 +17,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0 ,0, 0.2);
 }
 img {
-    max-width: 10%;
+    max-width: 5%;
     height: auto;
     display: block;
 }
