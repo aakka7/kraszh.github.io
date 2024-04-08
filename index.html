@@ -44,9 +44,9 @@
         form.addEventListener('continue', (e) => {
             e.preventDefault();
             
-            let diets = {};
+            let diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
-                if(item.checked == true){
+                if(item.checked === true){
                     diets.push(item.value);
                 }
             })
