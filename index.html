@@ -39,7 +39,19 @@
         <button type = "continue">Continue</button>
     </form>
 
-    <script src="dform.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('continue', (e) => {
+        e.preventDefault();
+        let diets = [];
+        document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+        if(item.checked === true){
+            diets.push(item.value);
+        }
+    })
+    console.log(diets);
+})
+    </script>
 
 
     <nav class ="nav">
