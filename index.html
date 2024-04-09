@@ -37,22 +37,25 @@
             <input type = "checkbox" value = "Vegetarian">Vegetarian<br>
         </div>
 
-        <button type = "continue">Continue</button>
+        <button type = "continue" onclick = "list()">Continue</button>
     </form>
 
     <script>
-        const form = document.querySelector('form');
-        form.addEventListener('continue', (e) => {
-            e.preventDefault();
-            
-            let diets = [];
-            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
-                if(item.checked === true){
-                    diets.push(item.value);
-                }
+        function list() {
+            const form = document.querySelector('form');
+            form.addEventListener('continue', (e) => {
+                e.preventDefault();
+                
+                let diets = [];
+                document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                    if(item.checked === true){
+                        diets.push(item.value);
+                    }
+                });
+                console.log(diets);
             });
-            console.log(diets);
-        })
+            window.location.href = "ingpage.html";
+        }
     </script>
     </div>
 
