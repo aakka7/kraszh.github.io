@@ -12,8 +12,8 @@
         <img src="img/logo.png">
     </nav>
     <br>
-    <form>
-        <div class = "diets">
+    <form class = "diets">
+        <div class = "d">
             <input type = "checkbox" value = "Alcohol-free">Alcohol-free<br>
             <input type = "checkbox" value = "Balanced">Balanced<br>
             <input type = "checkbox" value = "High-Fiber">High-Fiber<br>
@@ -40,7 +40,7 @@
     </form>
 
     <script>
-        const form = document.querySelector('form');
+        const form = document.querySelector('diets');
         form.addEventListener('continue', (e) => {
             e.preventDefault();
             
