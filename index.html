@@ -13,7 +13,7 @@
     </nav>
     <br>
     <form>
-        <div class = "d">
+        <div class = "form">
             <input type = "checkbox" value = "Alcohol-free">Alcohol-free<br>
             <input type = "checkbox" value = "Balanced">Balanced<br>
             <input type = "checkbox" value = "High-Fiber">High-Fiber<br>
@@ -39,20 +39,8 @@
         <button type = "continue">Continue</button>
     </form>
 
-    <script type ="javascript">
-        const form = document.querySelector('form');
-        form.addEventListener('continue', (e) => {
-            e.preventDefault();
-            
-            let diets = [];
-            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
-                if(item.checked === true){
-                    diets.push(item.value);
-                }
-            })
-            console.log(diets);
-        })
-    </script>
+    <script src="dform.js"></script>
+
 
     <nav class ="nav">
         <a href = "index.html">Spices</a>
