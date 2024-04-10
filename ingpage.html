@@ -10,7 +10,7 @@
             .pgTitle {
                 font-size: 19px;
                 font-style: italic;
-                margin: 3px;
+                padding: 5px;
             }
             .ingList {
                 padding: 4px;
@@ -21,20 +21,36 @@
                 bottom: 50px;
                 margin: 15px;
                 text-align: center;
-                .input{
-                height: 45px;
-                font-size: 16px;
-                font-style: italic;
-                min-width: 20rem;
+                input {
+                    height: 45px;
+                    font-size: 16px;
+                    font-style: italic;
+                    min-width: 20rem;
                 }
-            .btn{
-                height: 45px;
-                width: 45px;
-            }
+                .btn{
+                    height: 45px;
+                    width: 45px;
+                    opacity: 0.6;
+                    pointer-events: none;
+                }
+                .btn.active {
+                    opacity: 1;
+                    pointer-events: all;
+                }
             }
         
-            .ing{
-                padding: 4px;
+            .ings{
+                width: 100%;
+            }
+            
+            .ing {
+                padding: 6px;
+                border-radius: 3px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
 
@@ -57,9 +73,9 @@
         
         <div class = "ings">
             <div class = "ing">
+                
                 <div class = "item-btn">
-
-
+                    <i class = "remove"></i>
                 </div>
 
             </div>
