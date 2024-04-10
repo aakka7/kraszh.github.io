@@ -7,7 +7,15 @@
         <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
         <link rel="stylesheet" href="./style.css">
         <style>
-            .ing {
+            .pgTitle {
+                font-size: 19px;
+                font-style: italic;
+                margin: 3px;
+            }
+            .ingList {
+                padding: 10px;
+            }
+            .bar {
                 position: absolute;
                 bottom: 50px;
                 margin: 15px;
@@ -16,7 +24,7 @@
                     height: 45px;
                     font-size: 16px;
                     font-style: italic;
-                    min-width: 23rem;
+                    min-width: 20rem;
                 }
                 .btn{
                     height: 45px;
@@ -32,12 +40,24 @@
     </nav>
     <br>
 
-    <div class="ing">
+    <h1 class = "pgTitle">Add Ingredients</h1>
+
+    <div class="ingList">
         <div class="bar">
-            <input type="text" class="input" placeholder="    Add Ingredient" id="task" required autocomplete="off">
+            <input type="text" class="IngIn" placeholder="    Add Ingredient" id="task" required autocomplete="off">
             <button class="btn" type="submit">&#10010;</button>
         </div>
-        <ul class="list-group small" id="tasks"></ul>
+        
+        <div class = "ings">
+            <div class = "ing">
+                <div class = "item-btn">
+
+
+                </div>
+
+            </div>
+
+        </div>
        
     </div>
    
