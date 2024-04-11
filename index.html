@@ -15,7 +15,7 @@
     <div>
     <form>
         <div class = "form">
-            <input type = "checkbox" value = "Alcohol-free">Alcohol-free<br>
+            <input type = "checkbox" value = "Alcohol-free" onclick = "save()">Alcohol-free<br>
             <input type = "checkbox" value = "Balanced">Balanced<br>
             <input type = "checkbox" value = "High-Fiber">High-Fiber<br>
             <input type = "checkbox" value = "High-Protein">High-Protein<br>
@@ -41,9 +41,17 @@
     </form>
 
     <script>
-        /**function save() {
-
-        }**/
+        function save() {
+            var diets = [];
+            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                if(item.checked === true){
+                    diets.push(item.value);
+                }
+            });
+            var diets_string = JSON.stringify(diets);
+            localStorage.setItem('diets_string', diets_string);
+            console.log(JSON.parse(localStorage.getItem('diets_string')));
+        }
         function list() {
             var diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
@@ -54,7 +62,7 @@
             var diets_string = JSON.stringify(diets);
             localStorage.setItem('diets_string', diets_string);
             console.log(JSON.parse(localStorage.getItem('diets_string')));
-            /**window.location.href = "ingpage.html";**/
+            window.location.href = "ingpage.html";
         }
         /**function load() { 
 
