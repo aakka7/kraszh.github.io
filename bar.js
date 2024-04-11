@@ -4,7 +4,7 @@ let ing  = document.querySelector('.ing');
 
 //Add button disabled
 input.addEventListener('keyup', () => {
-    if(input.ariaValueMax.trim() !== 0){
+    if(input.value.trim() !== 0){
         addBtn.classList.add('active');
     }
     else{
@@ -16,7 +16,7 @@ input.addEventListener('keyup', () => {
 //Add ing
 
 addBtn.addEventListener('click', () => { 
-    if(input.ariaValueMax.trim() !== 0){
+    if(input.value.trim() !== 0){
         let newIng = document.createElement('div');
         newIng.classList.add('Ing');
         newIng.innerHTML = '<p> ${input.value}</p><div class = "item-btn"><i class = "remove"></i></div>';
