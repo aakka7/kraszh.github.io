@@ -7,7 +7,7 @@
         <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
         <link rel="stylesheet" href="./style.css">
     </head>
-<body>
+<body onload="load()">
     <nav class = "header">
         <img src="img/logo.png">
     </nav>
@@ -15,33 +15,35 @@
     <div>
     <form>
         <div class = "form">
-            <input type = "checkbox" value = "Alcohol-free" onclick = "save()">Alcohol-free<br>
-            <input type = "checkbox" value = "Balanced">Balanced<br>
-            <input type = "checkbox" value = "High-Fiber">High-Fiber<br>
-            <input type = "checkbox" value = "High-Protein">High-Protein<br>
-            <input type = "checkbox" value = "Keto">Keto<br>
-            <input type = "checkbox" value = "Kidney friendly">Kidney friendly<br>
-            <input type = "checkbox" value = "Kosher">Kosher<br>
-            <input type = "checkbox" value = "Low-Carb">Low-Carb<br>
-            <input type = "checkbox" value = "Low-Fat">Low-Fat<br>
-            <input type = "checkbox" value = "Low-potassium">Low-potassium<br>
-            <input type = "checkbox" value = "Low-Sodium">Low-Sodium<br>
-            <input type = "checkbox" value = "No oil added">No oil added<br>
-            <input type = "checkbox" value = "No-sugar">No-sugar<br>
-            <input type = "checkbox" value = "Paleo">Paleo<br>
-            <input type = "checkbox" value = "Pescatarian">Pescatarian<br>
-            <input type = "checkbox" value = "Pork-free">Pork-free<br>
-            <input type = "checkbox" value = "Red meat-free">Red meat-free<br>
-            <input type = "checkbox" value = "Sugar-conscious">Sugar-conscious<br>
-            <input type = "checkbox" value = "Vegan">Vegan<br>
-            <input type = "checkbox" value = "Vegetarian">Vegetarian<br>
+            <input type = "checkbox" value = "Alcohol-free" onclick = "saveD()">Alcohol-free<br>
+            <input type = "checkbox" value = "Balanced" onclick = "saveD()">Balanced<br>
+            <input type = "checkbox" value = "High-Fiber" onclick = "saveD()">High-Fiber<br>
+            <input type = "checkbox" value = "High-Protein" onclick = "saveD()">High-Protein<br>
+            <input type = "checkbox" value = "Keto" onclick = "saveD()">Keto<br>
+            <input type = "checkbox" value = "Kidney friendly" onclick = "saveD()">Kidney friendly<br>
+            <input type = "checkbox" value = "Kosher" onclick = "saveD()">Kosher<br>
+            <input type = "checkbox" value = "Low-Carb" onclick = "saveD()">Low-Carb<br>
+            <input type = "checkbox" value = "Low-Fat" onclick = "saveD()">Low-Fat<br>
+            <input type = "checkbox" value = "Low-potassium" onclick = "saveD()">Low-potassium<br>
+            <input type = "checkbox" value = "Low-Sodium" onclick = "saveD()">Low-Sodium<br>
+            <input type = "checkbox" value = "No oil added" onclick = "saveD()">No oil added<br>
+            <input type = "checkbox" value = "No-sugar" onclick = "saveD()">No-sugar<br>
+            <input type = "checkbox" value = "Paleo" onclick = "saveD()">Paleo<br>
+            <input type = "checkbox" value = "Pescatarian" onclick = "saveD()">Pescatarian<br>
+            <input type = "checkbox" value = "Pork-free" onclick = "saveD()">Pork-free<br>
+            <input type = "checkbox" value = "Red meat-free" onclick = "saveD()">Red meat-free<br>
+            <input type = "checkbox" value = "Sugar-conscious" onclick = "saveD()">Sugar-conscious<br>
+            <input type = "checkbox" value = "Vegan" onclick = "saveD()">Vegan<br>
+            <input type = "checkbox" value = "Vegetarian" onclick = "saveD()">Vegetarian<br>
         </div>
 
         <button type = "button" onclick = "list()">Continue</button>
+        <button type = "button" onclick = "clear()">Clear</button>
     </form>
 
     <script>
-        function save() {
+        /** function saveS() {} **/
+        function saveD() {
             var diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
                 if(item.checked === true){
@@ -53,6 +55,10 @@
             console.log(JSON.parse(localStorage.getItem('diets_string')));
         }
         function list() {
+            /** var spices = [];
+             * 
+             * 
+             *  **/
             var diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
                 if(item.checked === true){
@@ -64,9 +70,19 @@
             console.log(JSON.parse(localStorage.getItem('diets_string')));
             window.location.href = "ingpage.html";
         }
-        /**function load() { 
-
-        }**/
+        function clear(){
+            /** Spices **/
+            localStorage.clear();
+            load();
+        }
+        function load() { 
+            var checkedDiets = JSON.parse(localStorage.getItem('diets_string'));
+            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                if(checkedDiets.includes(item.value)){
+                    item.checked;
+                }
+            });
+        }
     </script>
     </div>
 
