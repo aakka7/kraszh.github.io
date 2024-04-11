@@ -48,7 +48,8 @@
                     diets.push(item.value);
                 }
             });
-            console.log(diets);
+            var diets_string = JSON.stringify(diets);
+            localStorage.setItem('diets_string', diets_string);
             window.location.href = "ingpage.html";
         }
     </script>
