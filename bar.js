@@ -19,12 +19,7 @@ addBtn.addEventListener('click', () => {
     if(input.ariaValueMax.trim() !== 0){
         let newIng = document.createElement('div');
         newIng.classList.add('Ing');
-        newIng.innerHTML = '
-        <p> ${input.value}</p>
-        <div class = "item-btn">
-            <i class = "remove"></i>
-        </div>
-        ';
+        newIng.innerHTML = '<p> ${input.value}</p><div class = "item-btn"><i class = "remove"></i></div>';
         ing.appendChild(newIng);
         input.value = ' ';
     }
