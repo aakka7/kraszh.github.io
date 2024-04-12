@@ -73,6 +73,8 @@
         function clr() {
             /** Spices **/
             localStorage.removeItem('diets_string');
+            var diets = [];
+            localStorage.setItem('diets_string', JSON.stringify(diets));
             location.reload();
         }
         function load() { 
