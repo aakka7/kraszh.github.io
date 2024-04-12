@@ -2,10 +2,12 @@
 <html>
     <head>
         <title>IngredientsPage</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
         <meta charset="utf-8">
         <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
         <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
         <style>
             .pgTitle {
                 font-size: 19px;
@@ -14,7 +16,7 @@
             }
             .ingList {
                 padding: 4px;
-                grid-template-columns: 4fr 1fr;
+                flex-direction: column;
             }
 
             .bar{
@@ -65,19 +67,20 @@
             <input type = "file" accept = "image/*" capute onchange = "previewImage(event)">
             <img id = "preview" src = "#" alt = "Preview">
         </div>
+
         <div class="bar">
             <input type="text" class="IngIn" placeholder="    Add Ingredient" id="task" required autocomplete="off">
             <button class="btn" type="submit">&#10010;</button>
         </div>
         
         <div class = "ings">
-            <div class = "ing">
+            <!--<div class = "ing">
                 
                 <div class = "item-btn">
                     <i class = "remove"></i>
                 </div>
 
-            </div>
+            </div>-->
 
         </div>
        
