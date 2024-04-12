@@ -33,7 +33,7 @@ addBtn.addEventListener('click', () => {
     }
 })
 
-tasks.addEventListener('click', (e) = > {
+tasks.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-solid fa-circle-xmark')){
         e.target.parentElement.parentElement.remove();
     }
