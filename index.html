@@ -7,7 +7,7 @@
         <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
         <link rel="stylesheet" href="./style.css">
     </head>
-<body onload="load()">
+<body onload = "load()">
     <nav class = "header">
         <img src="img/logo.png">
     </nav>
@@ -79,7 +79,7 @@
             var checkedDiets = JSON.parse(localStorage.getItem('diets_string'));
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
                 if(checkedDiets.includes(item.value)){
-                    item.checked;
+                    item.setAttribute('checked', 'checked');
                 }
             });
         }
