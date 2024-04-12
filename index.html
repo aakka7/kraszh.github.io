@@ -13,8 +13,32 @@
     </nav>
     <br>
     <div>
-    <form>
-        <div class = "form">
+    <form class>
+        <div class = "spices">
+            <input type = "checkbox" value = "Black Pepper " onclick = "saveS()">Black Pepper<br>
+            <input type = "checkbox" value = "Cardamom" onclick = "saveS()">Cardamom<br>
+            <input type = "checkbox" value = "Cayenne Pepper" onclick = "saveS()">Cayenne Pepper<br>
+            <input type = "checkbox" value = "Cinnamon" onclick = "saveS()">Cinnamon<br>
+            <input type = "checkbox" value = "Cloves" onclick = "saveS()">Cloves<br>
+            <input type = "checkbox" value = "Crushed Red Pepper" onclick = "saveS()">Crushed Red Pepper<br>
+            <input type = "checkbox" value = "Cumin" onclick = "saveS()">Cumin<br>
+            <input type = "checkbox" value = "Curry Powder" onclick = "saveS()">Curry Powder<br>
+            <input type = "checkbox" value = "Garlic Powder " onclick = "saveS()">Garlic Powder <br>
+            <input type = "checkbox" value = "Ginger" onclick = "saveS()">Ginger<br>
+            <input type = "checkbox" value = "Italian Seasoning" onclick = "saveS()">Italian Seasoning<br>
+            <input type = "checkbox" value = "Nutmeg" onclick = "saveS()">Nutmeg<br>
+            <input type = "checkbox" value = "Onion Powder" onclick = "saveS()">Onion Powder<br>
+            <input type = "checkbox" value = "Oregano" onclick = "saveS()">Oregano<br>
+            <input type = "checkbox" value = "Paprika" onclick = "saveS()">Paprika<br>
+            <input type = "checkbox" value = "Rosemary" onclick = "saveS()">Rosemary<br>
+            <input type = "checkbox" value = "Salt" onclick = "saveS()">Salt<br>
+            <input type = "checkbox" value = "Sage" onclick = "saveS()">Sage<br>
+            <input type = "checkbox" value = "Smoked Paprika" onclick = "saveS()">Smoked Paprika<br>
+            <input type = "checkbox" value = "Thyme" onclick = "saveS()">Thyme<br>
+            <input type = "checkbox" value = "Turmeric" onclick = "saveS()">Turmeric<br>
+        </div>
+        <button type = "button" onclick = "clrS()">Clear</button>
+        <div class = "diets">
             <input type = "checkbox" value = "Alcohol-free" onclick = "saveD()">Alcohol-free<br>
             <input type = "checkbox" value = "Balanced" onclick = "saveD()">Balanced<br>
             <input type = "checkbox" value = "High-Fiber" onclick = "saveD()">High-Fiber<br>
@@ -38,11 +62,21 @@
         </div>
 
         <button type = "button" onclick = "list()">Continue</button>
-        <button type = "button" onclick = "clr()">Clear</button>
+        <button type = "button" onclick = "clrD()">Clear</button>
     </form>
 
     <script>
-        /** function saveS() {} **/
+        function saveS() {
+            var spices = [];
+            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                if(item.checked === true){
+                    spices.push(item.value);
+                }
+            });
+            var spices_string = JSON.stringify(spices);
+            localStorage.setItem('spices_string', spices_string);
+            console.log(JSON.parse(localStorage.getItem('spices_string')));
+        } 
         function saveD() {
             var diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
@@ -55,10 +89,7 @@
             console.log(JSON.parse(localStorage.getItem('diets_string')));
         }
         function list() {
-            /** var spices = [];
-             * 
-             * 
-             *  **/
+            saveS();
             var diets = [];
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
                 if(item.checked === true){
@@ -70,14 +101,26 @@
             console.log(JSON.parse(localStorage.getItem('diets_string')));
             window.location.href = "ingpage.html";
         }
-        function clr() {
-            /** Spices **/
+        function clrS() {
+            localStorage.removeItem('spices_string');
+            var spices = [];
+            localStorage.setItem('spices_string', JSON.stringify(spices));
+            location.reload();
+        }
+
+        function clrD() {
             localStorage.removeItem('diets_string');
             var diets = [];
             localStorage.setItem('diets_string', JSON.stringify(diets));
             location.reload();
         }
         function load() { 
+            var checkedSpices = JSON.parse(localStorage.getItem('spices_string'));
+            document.querySelectorAll('[type = "checkbox"]').forEach(item => {
+                if(checkedSpices.includes(item.value)){
+                    item.setAttribute('checked', 'checked');
+                }
+            });
             var checkedDiets = JSON.parse(localStorage.getItem('diets_string'));
             document.querySelectorAll('[type = "checkbox"]').forEach(item => {
                 if(checkedDiets.includes(item.value)){
