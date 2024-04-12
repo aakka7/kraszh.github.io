@@ -19,7 +19,12 @@ addBtn.addEventListener('click', () => {
     if(input.value.trim() != 0){
         let newIng = document.createElement('div');
         newIng.classList.add('Ing');
-        newIng.innerHTML = `<p>${input.value}</p> <div class = "item-btn"> <i class="fa-solid fa-circle-xmark"></i> <br>`;
+        newIng.innerHTML = `
+        <p>${input.value}</p> 
+        <div class = "item-btn"> 
+            <i class="fa-solid fa-circle-xmark"></i> 
+        </div>
+        <br>`;
         ings.appendChild(newIng);
         input.value = '';
     }
