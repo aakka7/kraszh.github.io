@@ -32,7 +32,7 @@ addBtn.addEventListener('click', () => {
 })
 
 ings.addEventListener('click', (e) => {
-    if(e.target.classList.contains('fa-solid fa-circle-xmark')){
+    if(e.target.classList.contains('fa-circle-xmark')){
         e.target.parentElement.parentElement.remove();
     }
 
