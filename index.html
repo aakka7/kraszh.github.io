@@ -68,7 +68,7 @@
     <script>
         function saveS() {
             var spices = [];
-            document.querySelector('.spices').forEach(item => {
+            document.querySelectorAll('[onclick = "saveS()"]').forEach(item => {
                 if(item.checked === true){
                     spices.push(item.value);
                 }
@@ -79,7 +79,7 @@
         } 
         function saveD() {
             var diets = [];
-            document.querySelector('.diets').forEach(item => {
+            document.querySelectorAll('[onclick = "saveD()"]').forEach(item => {
                 if(item.checked === true){
                     diets.push(item.value);
                 }
