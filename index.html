@@ -72,8 +72,8 @@
         }
         function clear(){
             /** Spices **/
+            location.reload();
             localStorage.clear('diets_string');
-            load();
         }
         function load() { 
             var checkedDiets = JSON.parse(localStorage.getItem('diets_string'));
