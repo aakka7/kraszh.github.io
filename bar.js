@@ -38,6 +38,8 @@ function saveI() {
 function load() { 
     var retList = JSON.parse(localStorage.getItem('ings_string'));
     for(item in retList) {
+        console.log(item);
+        console.log(item.value);
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
