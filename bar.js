@@ -60,4 +60,9 @@ ings.addEventListener('click', (e) => {
 
 })
 
-/**onclick = "clearI()"**/
+function clearI() {
+    localStorage.removeItem('ings_string');
+    ingslist = [];
+    localStorage.setItem('ings_string', JSON.stringify(ingsList));
+    location.reload();
+}
