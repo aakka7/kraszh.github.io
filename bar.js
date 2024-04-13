@@ -25,7 +25,7 @@ function saveI() {
         </div>
         <br>`;
         ings.appendChild(newIng);
-        ingsList.push(item.value);
+        ingsList.push(input.value);
         var ings_string = JSON.stringify(ingsList);
         localStorage.setItem('ings_string', ings_string);
         /**input.value = '';**/
