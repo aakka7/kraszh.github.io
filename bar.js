@@ -25,6 +25,7 @@ function saveI() {
         </div>
         <br>`;
         ings.appendChild(newIng);
+        
         ingsList.push(input.value);
         var ings_string = JSON.stringify(ingsList);
         localStorage.setItem('ings_string', ings_string);
@@ -36,7 +37,7 @@ function saveI() {
 }
 function load() { 
     var retList = JSON.parse(localStorage.getItem('ings_string'));
-    retList.forEach(item => {
+    for(item in retList) {
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
@@ -46,7 +47,7 @@ function load() {
         </div>
         <br>`;
         ings.appendChild(newIng);
-    });
+    }
 }
 
 ings.addEventListener('click', (e) => {
