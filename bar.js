@@ -1,6 +1,7 @@
 let input  = document.querySelector('.IngIn');
 let addBtn  = document.querySelector('.btn');
 let ings  = document.querySelector('.ingredietns');
+var ingsList  = [];
 
 //Add button disabled
 input.addEventListener('keyup', () => {
@@ -14,7 +15,6 @@ input.addEventListener('keyup', () => {
 
 //Add ing
 function saveI() {
-    var ingsList = [];
     if(input.value.trim() != 0){
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
@@ -35,8 +35,8 @@ function saveI() {
     }
 }
 function load() { 
-    var ingsList = JSON.parse(localStorage.getItem('ings_string'));
-    ingsList.forEach(item => {
+    var retList = JSON.parse(localStorage.getItem('ings_string'));
+    retList.forEach(item => {
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
