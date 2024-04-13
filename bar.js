@@ -25,11 +25,11 @@ function saveI() {
         </div>
         <br>`;
         ings.appendChild(newIng);
-        
+        ingsList = JSON.parse(localStorage.getItem('ings_string'));
         ingsList.push(input.value);
         var ings_string = JSON.stringify(ingsList);
         localStorage.setItem('ings_string', ings_string);
-        /**input.value = '';**/
+        input.value = '';
     }
     else {
         alert("empty");
@@ -41,7 +41,7 @@ function load() {
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
-        <p>${item}</p> 
+        <p>${item.value}</p> 
         <div class = "item-btn"> 
             <i class="fa-solid fa-circle-xmark"></i> 
         </div>
