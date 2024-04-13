@@ -40,10 +40,11 @@ function load() {
     for(item in retList) {
         console.log(item);
         console.log(item.value);
+        console.log(retList[item]);
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
-        <p>${item.value}</p> 
+        <p>${retList[item]}</p> 
         <div class = "item-btn"> 
             <i class="fa-solid fa-circle-xmark"></i> 
         </div>
