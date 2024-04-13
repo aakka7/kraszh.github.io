@@ -59,3 +59,5 @@ ings.addEventListener('click', (e) => {
     }
 
 })
+
+/**onclick = "clearI()"**/

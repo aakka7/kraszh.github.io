@@ -18,7 +18,12 @@
                 padding: 4px;
                 flex-direction: column;
             }
-
+            .pictures {
+                position: fixed;
+                bottom: 100px;
+                margin: 15px;
+                flex-direction: row;
+            }
             .bar{
                 position: fixed;
                 bottom: 50px;
@@ -65,7 +70,7 @@
     <div class="ingList">
         <div class  = "pictures">
             <input type = "file" accept = "image/*" capute onchange = "previewImage(event)">
-      
+            <button class="btn" type="button">Clear</button>
         </div>
 
         <div class="bar">
