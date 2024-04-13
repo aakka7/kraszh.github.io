@@ -28,29 +28,26 @@ function saveI() {
         ingsList.push(item.value);
         var ings_string = JSON.stringify(ingsList);
         localStorage.setItem("ings_string", ings_string);
-        input.value = '';
+        /**input.value = '';**/
     }
     else {
         alert("empty");
     }
 }
-addBtn.addEventListener('click', () => { 
-    if(input.value.trim() != 0){
+function load() { 
+    var ingsList = JSON.parse(localStorage.getItem('ings_string'));
+    ingsList.forEach(item => {
         let newIng = document.createElement('div');
         newIng.classList.add('ing');
         newIng.innerHTML = `
-        <p>${input.value}</p> 
+        <p>${item}</p> 
         <div class = "item-btn"> 
             <i class="fa-solid fa-circle-xmark"></i> 
         </div>
         <br>`;
         ings.appendChild(newIng);
-        input.value = '';
-    }
-    else {
-        alert("empty");
-    }
-})
+    });
+}
 
 ings.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-circle-xmark')){
