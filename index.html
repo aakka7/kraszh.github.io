@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang ="en">
     <head>
         <title>SpicesPage</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -109,11 +109,13 @@
         }
         function load() { 
             var checkedSpices = JSON.parse(localStorage.getItem('spices_string'));
-            document.querySelectorAll('[onclick = "saveS()"]').forEach(item => {
-                if(!checkedSpices.includes(item.value)){
-                    item.setAttribute('checked', 'checked');
-                }
-            });
+            if(checkedSpices.length >= 1){
+                document.querySelectorAll('[onclick = "saveS()"]').forEach(item => {
+                    if(!checkedSpices.includes(item.value)){
+                        item.setAttribute('checked', 'checked');
+                    }
+                });
+            }
             var checkedDiets = JSON.parse(localStorage.getItem('diets_string'));
             document.querySelectorAll('[onclick = "saveD()"]').forEach(item => {
                 if(checkedDiets.includes(item.value)){
