@@ -15,6 +15,7 @@
     <div>
     <form class>
         <div class = "spices">
+            <h1 class = "pgTitle">Select spices you have</h1>
             <input type = "checkbox" value = "Black Pepper " onclick = "saveS()">Black Pepper<br>
             <input type = "checkbox" value = "Cardamom" onclick = "saveS()">Cardamom<br>
             <input type = "checkbox" value = "Cayenne Pepper" onclick = "saveS()">Cayenne Pepper<br>
@@ -69,7 +70,7 @@
         function saveS() {
             var spices = [];
             document.querySelectorAll('[onclick = "saveS()"]').forEach(item => {
-                if(item.checked === true){
+                if(item.checked === false){
                     spices.push(item.value);
                 }
             });
@@ -109,7 +110,7 @@
         function load() { 
             var checkedSpices = JSON.parse(localStorage.getItem('spices_string'));
             document.querySelectorAll('[onclick = "saveS()"]').forEach(item => {
-                if(checkedSpices.includes(item.value)){
+                if(!checkedSpices.includes(item.value)){
                     item.setAttribute('checked', 'checked');
                 }
             });
