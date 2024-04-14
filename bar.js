@@ -25,10 +25,10 @@ function saveI() {
         </div>
         <br>`;
         ings.appendChild(newIng);
-        ingsList = JSON.parse(localStorage.getItem('ings_string'));
+        ingsList = JSON.parse(sessionStorage.getItem('ings_string'));
         ingsList.push(input.value);
         var ings_string = JSON.stringify(ingsList);
-        localStorage.setItem('ings_string', ings_string);
+        sessionStorage.setItem('ings_string', ings_string);
         input.value = '';
     }
     else {
@@ -36,7 +36,7 @@ function saveI() {
     }
 }
 function load() { 
-    var retList = JSON.parse(localStorage.getItem('ings_string'));
+    var retList = JSON.parse(sessionStorage.getItem('ings_string'));
     for(item in retList) {
         console.log(item);
         console.log(item.value);
@@ -61,8 +61,8 @@ ings.addEventListener('click', (e) => {
 })
 
 function clearI() {
-    localStorage.removeItem('ings_string');
+    sessionStorage.removeItem('ings_string');
     ingslist = [];
-    localStorage.setItem('ings_string', JSON.stringify(ingsList));
+    sessionStorage.setItem('ings_string', JSON.stringify(ingsList));
     location.reload();
 }
