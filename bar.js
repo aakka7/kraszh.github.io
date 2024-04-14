@@ -1,7 +1,6 @@
 let input  = document.querySelector('.IngIn');
 let addBtn  = document.querySelector('.btn');
 let ings  = document.querySelector('.ingredietns');
-var ingsList  = [];
 
 //Add button disabled
 input.addEventListener('keyup', () => {
@@ -25,10 +24,13 @@ function saveI() {
         </div>
         <br>`;
         ings.appendChild(newIng);
-        ingsList = JSON.parse(sessionStorage.getItem('ings_string'));
-        ingsList.push(input.value);
-        var ings_string = JSON.stringify(ingsList);
-        sessionStorage.setItem('ings_string', ings_string);
+        
+        var tempList = [];
+        document.querySelectorAll('[class = "ing"]').forEach(item => {
+            tempList.push(item);
+        });
+        tempList.push(input.value);
+        sessionStorage.setItem('ings_string', JSON.stringify(tempList));
         input.value = '';
     }
     else {
@@ -37,32 +39,33 @@ function saveI() {
 }
 function load() { 
     var retList = JSON.parse(sessionStorage.getItem('ings_string'));
-    for(item in retList) {
-        console.log(item);
-        console.log(item.value);
-        console.log(retList[item]);
-        let newIng = document.createElement('div');
-        newIng.classList.add('ing');
-        newIng.innerHTML = `
-        <p>${retList[item]}</p> 
-        <div class = "item-btn"> 
-            <i class="fa-solid fa-circle-xmark"></i> 
-        </div>
-        <br>`;
-        ings.appendChild(newIng);
+    if(retList >= 1){
+        for(item in retList) {
+            let newIng = document.createElement('div');
+            newIng.classList.add('ing');
+            newIng.innerHTML = `
+            <p>${retList[item]}</p> 
+            <div class = "item-btn"> 
+                <i class="fa-solid fa-circle-xmark"></i> 
+            </div>
+            <br>`;
+            ings.appendChild(newIng);
+        }
     }
 }
 
 ings.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-circle-xmark')){
+        
         e.target.parentElement.parentElement.remove();
+
     }
 
 })
 
 function clearI() {
     sessionStorage.removeItem('ings_string');
-    ingslist = [];
+    var ingslist = [];
     sessionStorage.setItem('ings_string', JSON.stringify(ingsList));
     location.reload();
 }
