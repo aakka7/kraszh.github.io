@@ -29,9 +29,10 @@ function saveI() {
         document.querySelectorAll('[class = "fa-solid fa-circle-xmark"]').forEach(item => {
             tempList.push(item.value);
         });
-        
+        var tempString = JSON.stringify(tempList);
+        console.log(tempString);
         /**tempList.push(input.value);**/
-        sessionStorage.setItem('ings_string', JSON.stringify(tempList));
+        localStorage.setItem('ings_string', JSON.stringify(tempList));
         input.value = '';
     }
     else {
@@ -39,7 +40,7 @@ function saveI() {
     }
 }
 function load() { 
-    var retList = JSON.parse(sessionStorage.getItem('ings_string'));
+    var retList = JSON.parse(localStorage.getItem('ings_string'));
     if(retList >= 1){
         for(item in retList) {
             let newIng = document.createElement('div');
@@ -65,8 +66,8 @@ ings.addEventListener('click', (e) => {
 })
 
 function clearI() {
-    sessionStorage.removeItem('ings_string');
+    localStorage.removeItem('ings_string');
     var ingslist = [];
-    sessionStorage.setItem('ings_string', JSON.stringify(ingsList));
+    localStorage.setItem('ings_string', JSON.stringify(ingsList));
     location.reload();
 }
