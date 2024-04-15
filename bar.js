@@ -36,12 +36,12 @@ function saveI() {
             input.value = '';
         }
         else{
-            input.value = '**! Repeated value !**';
+            input.placeholder = '**! Repeated value !**';
         }
     }
     else {
         /**alert("empty");**/
-        input.value = '**! Empty Field !**';
+        input.placeholder = '**! Empty Field !**';
     }
 }
 function load() { 
