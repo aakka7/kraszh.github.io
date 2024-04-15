@@ -20,7 +20,7 @@ function saveI() {
         newIng.innerHTML = `
         <p>${input.value}</p> 
         <div class = "item-btn"> 
-            <input type = "button" class="in" value = "${input.value}"></input>
+            <input type = "button" class="in" value = "${input.value}"> </input>
             <i class = "fa-solid fa-circle-xmark"></i>
         </div>
         <br>`;
