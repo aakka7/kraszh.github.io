@@ -42,7 +42,7 @@ function saveI() {
 }
 function load() { 
     var retList = JSON.parse(localStorage.getItem('ings_string'));
-    if(retList >= 1){
+    if(retList.length >= 1){
         for(item in retList) {
             let newIng = document.createElement('div');
             newIng.classList.add('ing');
