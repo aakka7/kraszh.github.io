@@ -47,7 +47,7 @@ function load() {
             newIng.innerHTML = `
             <p>${retList[item]}</p> 
             <div class = "item-btn"> 
-                <input type = "button" class="fa-solid fa-circle-xmark" value = "${retList[item]}></input> 
+                <input type = "button" class="fa-solid fa-circle-xmark" value = "${retList[item]}>fa-solid fa-circle-xmark</input> 
             </div>
             <br>`;
             ings.appendChild(newIng);
