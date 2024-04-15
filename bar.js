@@ -25,12 +25,12 @@ function saveI() {
         <br>`;
         ings.appendChild(newIng);
         
-        var tempList = JSON.parse(sessionStorage.getItem('ings_string'));
-        /**document.querySelectorAll('[class = "ing"]').forEach(item => {
-            tempList.push(item);
-        });**/
+        var tempList = [];
+        document.querySelectorAll('[class = "fa-solid fa-circle-xmark"]').forEach(item => {
+            tempList.push(item.value);
+        });
         
-        tempList.push(input.value);
+        /**tempList.push(input.value);**/
         sessionStorage.setItem('ings_string', JSON.stringify(tempList));
         input.value = '';
     }
