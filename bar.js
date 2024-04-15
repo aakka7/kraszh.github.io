@@ -15,27 +15,33 @@ input.addEventListener('keyup', () => {
 //Add ing
 function saveI() {
     if(input.value.trim() != 0){
-        let newIng = document.createElement('div');
-        newIng.classList.add('ing');
-        newIng.innerHTML = `
-        <p>${input.value}</p> 
-        <div class = "item-btn"> 
-            <input type = "button" class="in" value = "${input.value}"><i class = "fa-solid fa-circle-xmark"></i></input>
-        </div>`;
-        ings.appendChild(newIng);
-        
-        var tempList = [];
-        document.querySelectorAll('[class = "in"]').forEach(item => {
-            tempList.push(item.value);
-        });
-        var tempString = JSON.stringify(tempList);
-        console.log(tempString);
-        /**tempList.push(input.value);**/
-        localStorage.setItem('ings_string', JSON.stringify(tempList));
-        input.value = '';
+        var checkList = JSON.parse(localStorage.getItem('ings_string'));
+        if(!checkList.includes(input.value)){    
+            let newIng = document.createElement('div');
+            newIng.classList.add('ing');
+            newIng.innerHTML = `
+            <p>${input.value}</p> 
+            <div class = "item-btn"> 
+                <input type = "button" class="in" value = "${input.value}"><i class = "fa-solid fa-circle-xmark"></i></input>
+            </div>`;
+            ings.appendChild(newIng);
+            
+            var tempList = [];
+            document.querySelectorAll('[class = "in"]').forEach(item => {
+                tempList.push(item.value);
+            });
+            var tempString = JSON.stringify(tempList);
+            console.log(tempString);
+            localStorage.setItem('ings_string', JSON.stringify(tempList));
+            input.value = '';
+        }
+        else{
+            input.value = '**! Repeated value !**';
+        }
     }
     else {
-        alert("empty");
+        /**alert("empty");**/
+        input.value = '**! Empty Field !**';
     }
 }
 function load() { 
@@ -57,13 +63,13 @@ function load() {
 ings.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-circle-xmark')){
         e.target.parentElement.parentElement.remove();
+        
         var tempList = [];
         document.querySelectorAll('[class = "in"]').forEach(item => {
             tempList.push(item.value);
         });
         var tempString = JSON.stringify(tempList);
         console.log(tempString);
-        /**tempList.push(input.value);**/
         localStorage.setItem('ings_string', JSON.stringify(tempList));
     }
 
