@@ -20,7 +20,7 @@ function saveI() {
         newIng.innerHTML = `
         <p>${input.value}</p> 
         <div class = "item-btn"> 
-            <input type = "button" class="in" value = "${input.value}"> </input>
+            <input type = "button" class="in" value = "${input.value}">
             <i class = "fa-solid fa-circle-xmark"></i>
         </div>
         <br>`;
@@ -49,7 +49,7 @@ function load() {
             newIng.innerHTML = `
             <p>${retList[item]}</p> 
             <div class = "item-btn"> 
-                <input type = "button" class="in" value = "${retList[item]}"></input> 
+                <input type = "button" class="in" value = "${retList[item]}">
                 <i class = "fa-solid fa-circle-xmark"></i>    
             </div>
             <br>`;
