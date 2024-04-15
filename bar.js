@@ -38,6 +38,7 @@ function saveI() {
         }
         else{
             input.placeholder = '**! Repeated value !**';
+            input.value = '';
         }
     }
     else {
