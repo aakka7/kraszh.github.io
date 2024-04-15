@@ -20,14 +20,14 @@ function saveI() {
         newIng.innerHTML = `
         <p>${input.value}</p> 
         <div class = "item-btn"> 
-            <input type = "button" class="fa-solid fa-circle-xmark" value = "${input.value}>fa-solid fa-circle-xmark</input>
+            <input type = "button" class="in" value = "${input.value}>fa-solid fa-circle-xmark</input>
             <i class = "fa-solid fa-circle-xmark"></i>
         </div>
         <br>`;
         ings.appendChild(newIng);
         
         var tempList = [];
-        document.querySelectorAll('[class = "fa-solid fa-circle-xmark"]').forEach(item => {
+        document.querySelectorAll('[class = "in"]').forEach(item => {
             tempList.push(item.value);
         });
         var tempString = JSON.stringify(tempList);
@@ -49,7 +49,7 @@ function load() {
             newIng.innerHTML = `
             <p>${retList[item]}</p> 
             <div class = "item-btn"> 
-                <input type = "button" class="fa-solid fa-circle-xmark" value = "${retList[item]}>fa-solid fa-circle-xmark</input> 
+                <input type = "button" class="in" value = "${retList[item]}>fa-solid fa-circle-xmark</input> 
                 <i class = "fa-solid fa-circle-xmark"></i>    
             </div>
             <br>`;
