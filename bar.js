@@ -20,10 +20,8 @@ function saveI() {
         newIng.innerHTML = `
         <p>${input.value}</p> 
         <div class = "item-btn"> 
-            <input type = "button" class="in" value = "${input.value}">fa-solid fa-circle-xmark</input>
-            <i class = "fa-solid fa-circle-xmark"></i>
-        </div>
-        <br>`;
+            <input type = "button" class="in" value = "${input.value}"><i class = "fa-solid fa-circle-xmark"></i></input>
+        </div>`;
         ings.appendChild(newIng);
         
         var tempList = [];
@@ -49,10 +47,8 @@ function load() {
             newIng.innerHTML = `
             <p>${retList[item]}</p> 
             <div class = "item-btn"> 
-                <input type = "button" class="in" value = "${retList[item]}">fa-solid fa-circle-xmark</input> 
-                <i class = "fa-solid fa-circle-xmark"></i>    
-            </div>
-            <br>`;
+                <input type = "button" class="in" value = "${retList[item]}"><i class = "fa-solid fa-circle-xmark"></i> </input> 
+            </div>`;
             ings.appendChild(newIng);
         }
     }
