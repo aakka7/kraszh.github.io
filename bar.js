@@ -33,6 +33,7 @@ function saveI() {
             var tempString = JSON.stringify(tempList);
             console.log(tempString);
             localStorage.setItem('ings_string', JSON.stringify(tempList));
+            input.placeholder = '    Add Ingredient';
             input.value = '';
         }
         else{
