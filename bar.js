@@ -56,9 +56,15 @@ function load() {
 
 ings.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-circle-xmark')){
-        
         e.target.parentElement.parentElement.remove();
-
+        var tempList = [];
+        document.querySelectorAll('[class = "in"]').forEach(item => {
+            tempList.push(item.value);
+        });
+        var tempString = JSON.stringify(tempList);
+        console.log(tempString);
+        /**tempList.push(input.value);**/
+        localStorage.setItem('ings_string', JSON.stringify(tempList));
     }
 
 })
