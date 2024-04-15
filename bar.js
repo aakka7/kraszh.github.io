@@ -20,7 +20,7 @@ function saveI() {
         newIng.innerHTML = `
         <p>${input.value}</p> 
         <div class = "item-btn"> 
-            <input type = "button" class="fa-solid fa-circle-xmark" value = "${input.value}></input> 
+            <input type = "button" class="fa-solid fa-circle-xmark" value = "${input.value}>fa-solid fa-circle-xmark</input> 
         </div>
         <br>`;
         ings.appendChild(newIng);
