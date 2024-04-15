@@ -69,7 +69,7 @@ ings.addEventListener('click', (e) => {
 
 function clearI() {
     localStorage.removeItem('ings_string');
-    var ingslist = [];
+    var ingsList = [];
     localStorage.setItem('ings_string', JSON.stringify(ingsList));
     location.reload();
 }
