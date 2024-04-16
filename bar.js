@@ -15,9 +15,8 @@ function saveI() {
     else if(input.value.trim() != 0){
         loadNsave(input.value);
     }
-    else {
+    else 
         input.placeholder = '**! Empty Field !**';
-    }
 }
 
 function load() { 
@@ -32,12 +31,7 @@ function load() {
 ings.addEventListener('click', (e) => {
     if(e.target.classList.contains('fa-circle-xmark')){
         e.target.parentElement.parentElement.remove();
-        /** Rebuilds the list */
-        var tempList = [];
-        document.querySelectorAll('[class = "in"]').forEach(item => {
-            tempList.push(item.value);
-        });
-        localStorage.setItem('ings_string', JSON.stringify(tempList));
+        reBuild();
     }
 
 })
@@ -54,13 +48,7 @@ function loadNsave(food){
     var checkList = JSON.parse(localStorage.getItem('ings_string'));
     if(!checkList.includes(food)){   
         newHtml(food);
-        /** Rebuilds the list in case something was removed **/
-        var tempList = [];
-        document.querySelectorAll('[class = "in"]').forEach(item => {
-            tempList.push(item.value);
-        });
-        var tempString = JSON.stringify(tempList);
-        localStorage.setItem('ings_string', JSON.stringify(tempList));
+        reBuild();
         input.placeholder = '    Add Ingredient';
         input.value = '';
     }
@@ -79,4 +67,12 @@ function newHtml(val){
             <input type = "button" class="in" value = "${val}"><i class = "fa-solid fa-circle-xmark"></i></input>
         </div>`;
         ings.appendChild(newIng);
+}
+
+function reBuild(){
+    var tempList = [];
+    document.querySelectorAll('[class = "in"]').forEach(item => {
+        tempList.push(item.value);
+    });
+    localStorage.setItem('ings_string', JSON.stringify(tempList));
 }
