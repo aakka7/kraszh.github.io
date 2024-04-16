@@ -38,8 +38,6 @@ function saveI() {
             var tempString = JSON.stringify(tempList);
             localStorage.setItem('ings_string', JSON.stringify(tempList));**/
         loadNsave(input.value);
-        input.placeholder = '    Add Ingredient';
-        input.value = '';
         
     }
     else {
@@ -133,6 +131,8 @@ function loadNsave(food){
         });
         var tempString = JSON.stringify(tempList);
         localStorage.setItem('ings_string', JSON.stringify(tempList));
+        input.placeholder = '    Add Ingredient';
+        input.value = '';
     }
     else{
         input.placeholder = '**! Repeated value !**';
