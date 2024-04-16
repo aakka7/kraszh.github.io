@@ -93,7 +93,7 @@ function addList(str){
     for(element in arr){
         arr[element] = arr[element].trim().toUpperCase();
         var checkList = JSON.parse(localStorage.getItem('ings_string'));
-        if(!checkList.includes(input.value)){   
+        if(!checkList.includes(arr[element])){   
             let newIng = document.createElement('div');
             newIng.classList.add('ing');
             newIng.innerHTML = `
