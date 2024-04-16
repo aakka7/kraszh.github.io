@@ -62,8 +62,8 @@
             <input type = "checkbox" value = "Vegetarian" onclick = "saveD()">Vegetarian<br>
         </div>
 
-        <button type = "button" onclick = "list()">Continue</button>
         <button type = "button" onclick = "clrD()">Clear</button>
+        <button type = "button" onclick = "list()">Continue</button>
     </form>
 
     <script>
@@ -76,7 +76,6 @@
             });
             var spices_string = JSON.stringify(spices);
             localStorage.setItem('spices_string', spices_string);
-            console.log(JSON.parse(localStorage.getItem('spices_string')));
         } 
         function saveD() {
             var diets = [];
@@ -87,7 +86,6 @@
             });
             var diets_string = JSON.stringify(diets);
             localStorage.setItem('diets_string', diets_string);
-            console.log(JSON.parse(localStorage.getItem('diets_string')));
         }
         function list() {
             saveS();
