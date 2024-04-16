@@ -35,6 +35,7 @@ function addList(str){
             var tempString = JSON.stringify(tempList);
             console.log(tempString);
             localStorage.setItem('ings_string', JSON.stringify(tempList));
+        }
     }
     input.placeholder = '    Add Ingredient';
     input.value = '';
@@ -73,7 +74,6 @@ function saveI() {
         }
     }
     else {
-        /**alert("empty");**/
         input.placeholder = '**! Empty Field !**';
     }
 }
