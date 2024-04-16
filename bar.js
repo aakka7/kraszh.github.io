@@ -15,6 +15,7 @@ input.addEventListener('keyup', () => {
 //Add ing
 function saveI() {
     if(input.value.trim() != 0){
+        input.value = input.value.toUpperCase();
         var checkList = JSON.parse(localStorage.getItem('ings_string'));
         if(!checkList.includes(input.value)){    
             let newIng = document.createElement('div');
