@@ -37,14 +37,10 @@ function saveI() {
             });
             var tempString = JSON.stringify(tempList);
             localStorage.setItem('ings_string', JSON.stringify(tempList));**/
-            loadNsave(input.value);
-            input.placeholder = '    Add Ingredient';
-            input.value = '';
-        }
-        else{
-            input.placeholder = '**! Repeated value !**';
-            input.value = '';
-        }
+        loadNsave(input.value);
+        input.placeholder = '    Add Ingredient';
+        input.value = '';
+        
     }
     else {
         input.placeholder = '**! Empty Field !**';
@@ -120,22 +116,26 @@ function addList(str){
 
 function loadNsave(food){
     food = food.trim().toUpperCase();
-        var checkList = JSON.parse(localStorage.getItem('ings_string'));
-        if(!checkList.includes(food)){   
-            let newIng = document.createElement('div');
-            newIng.classList.add('ing');
-            newIng.innerHTML = `
-            <p>${food}</p> 
-            <div class = "item-btn"> 
-                <input type = "button" class="in" value = "${food}"><i class = "fa-solid fa-circle-xmark"></i></input>
-            </div>`;
-            ings.appendChild(newIng);
-            /** Rebuilds the list in case something was removed **/
-            var tempList = [];
-            document.querySelectorAll('[class = "in"]').forEach(item => {
-                tempList.push(item.value);
-            });
-            var tempString = JSON.stringify(tempList);
-            localStorage.setItem('ings_string', JSON.stringify(tempList));
-        }
+    var checkList = JSON.parse(localStorage.getItem('ings_string'));
+    if(!checkList.includes(food)){   
+        let newIng = document.createElement('div');
+        newIng.classList.add('ing');
+        newIng.innerHTML = `
+        <p>${food}</p> 
+        <div class = "item-btn"> 
+            <input type = "button" class="in" value = "${food}"><i class = "fa-solid fa-circle-xmark"></i></input>
+        </div>`;
+        ings.appendChild(newIng);
+        /** Rebuilds the list in case something was removed **/
+        var tempList = [];
+        document.querySelectorAll('[class = "in"]').forEach(item => {
+            tempList.push(item.value);
+        });
+        var tempString = JSON.stringify(tempList);
+        localStorage.setItem('ings_string', JSON.stringify(tempList));
+    }
+    else{
+        input.placeholder = '**! Repeated value !**';
+        input.value = '';
+    }
 }
