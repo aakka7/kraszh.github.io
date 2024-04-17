@@ -1,4 +1,4 @@
-let input  = document.querySelector('.IngIn');
+let input  = document.querySelector('.ingIn');
 let addBtn  = document.querySelector('.btn');
 let ings  = document.querySelector('.ingredietns');
 
