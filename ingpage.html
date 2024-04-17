@@ -61,7 +61,12 @@
                     font-size: 0;
                 }
             }
-
+            #results {
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
 
         </style>
     </head>
@@ -80,14 +85,14 @@
             <button class="btn" type="button" onclick = "clearI()">Clear</button>
             <button class="next" type="button" onclick = "cont()">Continue</button>
         </div>
-
+        <div id="results">Results </div>
         <div class="bar">
             <input type="text" class="IngIn" placeholder="    Add Ingredient" id="task" required autocomplete="off">
             <button class="btn" type="button" onclick = "saveI()">&#10010;</button>
         </div>
         
         <div class = "ingredietns">
-            <!--Ingredients go here-->
+            
         </div>
        
     </div>
