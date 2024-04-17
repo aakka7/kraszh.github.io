@@ -52,7 +52,8 @@ h1 {
 }
 
 .next {
-    text-align: right;
+    right: 15;
     position: fixed;
     bottom: 105px;
+    margin: 15px;
 }
