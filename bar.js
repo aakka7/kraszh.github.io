@@ -5,7 +5,7 @@ let ings  = document.querySelector('.ingredietns');
 //Add ing
 function saveI() {
     if(input.value.includes(',')){
-        var arr = input.value.split(', ');
+        var arr = input.value.split(',');
         for(element in arr){
             loadNsave(arr[element]);
         }
