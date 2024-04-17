@@ -76,3 +76,7 @@ function reBuild(){
     });
     localStorage.setItem('ings_string', JSON.stringify(tempList));
 }
+
+function cont() {
+    window.location.href = "recpage.html";
+}

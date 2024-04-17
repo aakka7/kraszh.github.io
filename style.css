@@ -46,3 +46,14 @@ img {
 .nav:hover { 
     background-color: #9ca9f5;
 }
+
+h1 {
+    font-size: 20px;
+}
+
+.next {
+    right: 10px;
+    position: fixed;
+    bottom: 105px;
+    margin: 15px;
+}
