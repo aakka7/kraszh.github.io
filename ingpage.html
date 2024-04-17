@@ -8,7 +8,16 @@
         <!--<link rel="shortcut icon" href="/assets/favicon.ico">-->
         <link rel="stylesheet" href="./style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.roboflow.com/0.2.25/roboflow.js"></script>
+
+        <script>
+            var publishable_key = "rf_85Q3CqevavPYXiP30d5P8AYth6e2";
+        
+            const CONFIDENCE_THRESHOLD = 0.1;
+            const MODEL_NAME = "ingredient-detector-fc7de";
+            const MODEL_VERSION = 1;
+          </script>
+        
         <style>
             .pgTitle {
                 font-size: 19px;
@@ -75,7 +84,7 @@
 
     <div class="ingList">
         <div class  = "pictures">
-            <input type="file" accept="image/*" onchange="previewAndPredictImage(event)">
+            <input type="file" accept="image/*" onchange="loadImage(event)">
             <button class="btn" type="button" onclick = "clearI()">Clear</button>
             <button class="next" type="button" onclick = "cont()">Continue</button>
         </div>
@@ -87,11 +96,10 @@
         <div class = "ingredietns">
             
         </div>
-        <div class="results" id="results"></div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src = "./bar.js"></script>
-    <script src="./detection.js"></script>
-    <nav class ="nav">
+    <nav class="nav" aria-label="Navigation">
         <a href = "index.html">Spices</a>
         <a href = "ingpage.html">Ingr.</a>
         <a href = "recpage.html">Recipes</a>

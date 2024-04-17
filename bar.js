@@ -2,6 +2,9 @@ let input  = document.querySelector('.IngIn');
 let addBtn  = document.querySelector('.btn');
 let ings  = document.querySelector('.ingredietns');
 
+let model = null;
+let user_confidence = 0.6;
+
 //Add ing
 function saveI() {
     if(input.value.includes(',')){
@@ -80,3 +83,47 @@ function reBuild(){
 function cont() {
     window.location.href = "recpage.html";
 }
+
+
+function loadImage(event) {
+    var image = new Image();
+    image.onload = function () {
+        detectImage(image);
+    };
+    image.src = URL.createObjectURL(event.target.files[0]);
+}
+
+
+function detectImage(image) {
+    if (!model) {
+        console.log("Model not loaded yet");
+        return;
+    }
+
+    model.detect(image).then(function (predictions) {
+        console.log(predictions);
+        for (const prediction of predictions) {
+            console.log("Prediction: ", prediction.class, prediction.confidence)
+            if (prediction.confidence > user_confidence / 10) {
+                console.log("I'm adding the ingredient named: ", prediction.class);
+                loadNsave(prediction.class);
+            }
+        }
+    }).catch(function (error) {
+        console.error("Detection failed:", error);
+    });
+}
+
+function loadModel() {
+    roboflow.auth({publishable_key: publishable_key}).load({
+        model: MODEL_NAME,
+        version: MODEL_VERSION
+    }).then(function(m) {
+        model = m;
+        model.configure({ threshold: CONFIDENCE_THRESHOLD });
+    }).catch(function(err) {
+        console.error("Model loading failed:", err);
+    });
+}
+
+loadModel();

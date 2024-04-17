@@ -2,25 +2,30 @@
 function previewAndPredictImage(event) {
     const file = event.target.files[0];
     if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const imageUrl = e.target.result;
-            predictImage(imageUrl);
-        };
-        reader.readAsDataURL(file);
+        // Call the predictImage function directly with the file
+        predictImage(file);
     }
 }
 
-// Predict the image using Roboflow API
-function predictImage(imageData) {
+// Predict the image using Roboflow API with form data
+function predictImage(file) {
     const apiKey = "7teFJo3CW2Pvjy7IsQgL";
     const modelUrl = "https://detect.roboflow.com/ingredient-detector-fc7de/1";
+
+    // Create a FormData object and append the file
+    let formData = new FormData();
+    formData.append('api_key', apiKey);
+    formData.append('image', file);
+
+    console.log(formData);
+
+    // Send the request with the file using Axios
     axios({
-        method: 'POST',
-        url: modelUrl,
+        method: "POST",
+        url: "https://detect.roboflow.com/ingredient-detector-fc7de/1",
         params: {
-            api_key: apiKey,
-            image: imageData
+            api_key: "7teFJo3CW2Pvjy7IsQgL",
+            image: "https://i.imgur.com/PEEvqPN.png"
         }
     })
     .then(function(response) {
@@ -29,17 +34,16 @@ function predictImage(imageData) {
     })
     .catch(function(error) {
         console.error(error);
-        document.getElementById('results').textContent = 'Error: ' + error.message;
+        document.querySelector('.ingredietns').textContent = 'Error: ' + error.message;
     });
 }
 
-// Display results and save to local storage
+// Display results and update the UI
 function updateIngredients(data) {
     const ingredientsList = document.querySelector('.ingredietns');
     const existingIngredients = JSON.parse(localStorage.getItem('ings_string') || '[]');
 
     data.predictions.forEach(prediction => {
-        // Add prediction to local storage and display
         if (!existingIngredients.includes(prediction.class)) {
             existingIngredients.push(prediction.class);
             const ingredientElement = document.createElement('div');
@@ -53,9 +57,8 @@ function updateIngredients(data) {
     localStorage.setItem('ings_string', JSON.stringify(existingIngredients));
 }
 
-// Clear the image input and results
+// Function to clear the image input and ingredients list
 function clearImage() {
-    document.getElementById('results').innerHTML = '';
-    document.querySelector('.ingredietns').innerHTML = ''; // Clear ingredients list
-    localStorage.removeItem('ings_string'); // Clear the local storage
+    document.querySelector('.ingredietns').innerHTML = '';
+    localStorage.removeItem('ings_string');
 }
