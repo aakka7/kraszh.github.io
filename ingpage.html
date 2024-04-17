@@ -34,17 +34,17 @@
                 margin: 15px;
                 flex-direction: row;
             }
-            .bar{
+            .bar {
                 position: fixed;
                 bottom: 50px;
                 margin: 15px;
                 text-align: center;
-                input {
+                .ingIn {
                     height: 45px;
                     font-size: 16px;
                     font-style: italic;
-                    /*min-width: 19rem;*/
-                    width: 100% - 50px;
+                    min-width: 19rem;
+                    
                 }
                 .btn{
                     height: 45px;
@@ -89,7 +89,7 @@
             <button class="next" type="button" onclick = "cont()">Continue</button>
         </div>
         <div class="bar">
-            <input type="text" class="IngIn" placeholder="    Add Ingredient" id="task" required autocomplete="off">
+            <input type="text" class="ingIn" placeholder="    Add Ingredient" id="task" required autocomplete="off">
             <button class="btn" type="button" onclick = "saveI()">&#10010;</button>
         </div>
         

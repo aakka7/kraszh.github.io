@@ -2,8 +2,18 @@
 function previewAndPredictImage(event) {
     const file = event.target.files[0];
     if (file) {
+<<<<<<< HEAD:test.txt
         // Call the predictImage function directly with the file
         predictImage(file);
+=======
+        const reader = new FileReader();
+        const imageUrl = "";
+        reader.onload = function(e) {
+            imageUrl = e.target.result;
+            predictImage(imageUrl);
+        };
+        reader.readAsDataURL(file);
+>>>>>>> 62008fcb1da97a37c20dfdbf8f1eecc84c5ea706:detection.js
     }
 }
 

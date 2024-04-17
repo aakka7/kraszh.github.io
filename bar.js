@@ -1,4 +1,4 @@
-let input  = document.querySelector('.IngIn');
+let input  = document.querySelector('.ingIn');
 let addBtn  = document.querySelector('.btn');
 let ings  = document.querySelector('.ingredietns');
 
@@ -8,7 +8,7 @@ let user_confidence = 0.6;
 //Add ing
 function saveI() {
     if(input.value.includes(',')){
-        var arr = input.value.split(', ');
+        var arr = input.value.split(',');
         for(element in arr){
             loadNsave(arr[element]);
         }
