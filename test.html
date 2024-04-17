@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IngredientsPage</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        .pgTitle {
+            font-size: 19px;
+            font-style: italic;
+            padding: 5px;
+        }
+        .ingList {
+            padding: 4px;
+            flex-direction: column;
+        }
+        .pictures {
+            position: fixed;
+            bottom: 105px;
+            margin: 15px;
+            flex-direction: row;
+        }
+        .bar {
+            position: fixed;
+            bottom: 50px;
+            margin: 15px;
+            text-align: center;
+            input {
+                height: 45px;
+                font-size: 16px;
+                font-style: italic;
+                min-width: 19rem;
+            }
+            .btn {
+                height: 45px;
+                width: 45px;
+            }
+        }
+        .ingredietns {
+            width: 100%;
+        }
+        .ing {
+            padding: 6px;
+            border-radius: 3px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .in {
+                background: transparent;
+                border: none;
+                font-size: 0;
+            }
+        }
+    </style>
+</head>
+<body onload="load()">
+    <nav class="header">
+        <img src="img/logo.png">
+    </nav>
+    <h1 class="pgTitle">Add Ingredients</h1>
+
+    <div class="ingList">
+        <div class="pictures">
+            <input type="file" accept="image/*" onchange="previewAndPredictImage(event)">
+            <button class="btn" type="button" onclick="clearImage()">Clear</button>
+        </div>
+        <div class="results" id="results"></div>
+        <div class="bar">
+            <input type="text" class="IngIn" placeholder="Add Ingredient" id="task" required autocomplete="off">
+            <button class="btn" onclick="saveI()">+</button>
+        </div>
+        <div class="ingredietns">
+            <!--<div class = "ing">
+                
+                <div class = "item-btn">
+                    <i class = "remove"></i>
+                </div>
+
+            </div>-->
+        </div>
+    </div>
+    <script src="./detection.js"></script>
+    <script src = "./bar.js"></script>
+    <nav class="nav">
+        <a href="index.html">Spices</a>
+        <a href="ingpage.html">Ingr.</a>
+        <a href="recpage.html">Recipes</a>
+    </nav>
+</body>
+</html>
