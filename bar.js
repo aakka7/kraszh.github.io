@@ -101,14 +101,16 @@ function detectImage(image) {
     }
 
     model.detect(image).then(function (predictions) {
-        console.log(predictions);
+        /*console.log(predictions);*/
         for (const prediction of predictions) {
-            console.log("Prediction: ", prediction.class, prediction.confidence)
+            /*console.log("Prediction: ", prediction.class, prediction.confidence)*/
             if (prediction.confidence > user_confidence / 10) {
-                console.log("I'm adding the ingredient named: ", prediction.class);
+                /*console.log("I'm adding the ingredient named: ", prediction.class);*/
                 loadNsave(prediction.class);
             }
         }
+        input.placeholder = '    Add Ingredient';
+        input.value = '';
     }).catch(function (error) {
         console.error("Detection failed:", error);
     });
