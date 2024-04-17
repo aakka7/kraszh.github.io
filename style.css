@@ -46,3 +46,13 @@ img {
 .nav:hover { 
     background-color: #9ca9f5;
 }
+
+h1 {
+    font-size: 20px;
+}
+
+.next {
+    text-align: right;
+    position: fixed;
+    bottom: 105px;
+}
