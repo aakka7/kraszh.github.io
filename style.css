@@ -52,7 +52,7 @@ h1 {
 }
 
 .next {
-    right: 15;
+    right: 10px;
     position: fixed;
     bottom: 105px;
     margin: 15px;
