@@ -3,9 +3,9 @@ function previewAndPredictImage(event) {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        const imageUrl = e.target.result;
+        const imageUrl = "";
         reader.onload = function(e) {
-            //const imageUrl = e.target.result;
+            imageUrl = e.target.result;
             predictImage(imageUrl);
         };
         reader.readAsDataURL(file);
